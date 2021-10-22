@@ -1,0 +1,4 @@
+O que é requisição?
+
+Quando vc chama uma informação externa, isso pode ser considerado uma
+requisição.

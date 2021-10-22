@@ -1,0 +1,28 @@
+Json significa java script object notation, logo, ele é uma sintaxe
+ou objeto, propriamente dito, usado para fazer a comunicação entre 
+requisições.
+
+==========================JSON PARSE===============================
+
+JSON.parse(); ele pega uma string de json e a transforma em um json real
+
+exemplo: let pessoa = '{"nome": "nome", "idade": 90}';
+
+=============================JSON stringify==========================
+Esta função recebe um json e retorna uma string de json, no caso 
+é o contrário da json.parse.
+
+========================Síncrono vs Assíncrono=======================
+o Código síncrono vai executando linha por linha, esperando a execução de cada linha para avançar
+o Código assíncrono vai executando linha por linha e não espera se a linha foi executada para executar a próxima
+
+Toda requisição interna, é uma requisição assíncrona.
+
+====================CALLBACK========================
+É uma funcao java script q vc cria e manda para outra funcao assincrona
+
+CALLBACK
+I'm gonna call u back = eu te ligo de volta (vc está prometendo que ligará de volta quando obter um resultado)
+callback, basicamente é isso, qndo vc tiver um resultado.
+
+Uma funcao que vc cria que fica esperando um resultado
