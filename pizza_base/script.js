@@ -1,6 +1,7 @@
 let cart = []; //variavel para o carrinho
 let modalQT = 1; //variavel para controle de qntdd
 let modalkey = 0; //para guardar a pizza selecionada
+let qtdd = 1;
 
 //funcoes para auxilio querySelector e querySelectorAll
 const qs = (el) => document.querySelector(el); //funcao para retornar o querySelector
@@ -34,9 +35,7 @@ pizzaJson.map((item, index) => {
     qs(".pizzaBig img").src = pizzaJson[key].img;
     qs(".pizzaInfo h1").innerHTML = pizzaJson[key].name;
     qs(".pizzaInfo--desc").innerHTML = pizzaJson[key].description;
-    qs(".pizzaInfo--actualPrice").innerHTML = `R$ ${pizzaJson[
-      key
-    ].price.toFixed(2)}`;
+    qs(".pizzaInfo--actualPrice").innerHTML = parseFloat(pizzaJson[key].price.toFixed(2));
 
     qs(".pizzaInfo--size.selected").classList.remove("selected"); //para deselecionar o item
 
@@ -59,6 +58,7 @@ pizzaJson.map((item, index) => {
   qs(".pizza-area").append(pizzaItem); //pega o conteudo em pizza area e adiciona mais um conteúdo
 });
 
+
 //Eventos do MODAL
 
 function closeModal() {
@@ -77,13 +77,19 @@ qsa(".pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton").forEach(
 //para os botoes de + e -
 qs(".pizzaInfo--qtmais").addEventListener("click", () => {
   modalQT++;
+  let valor = (pizzaJson[modalkey].price * parseInt(modalQT)).toFixed(2);
+  
   qs(".pizzaInfo--qt").innerHTML = modalQT; //para atualizar o valor da variavel modal
+  qs(".pizzaInfo--actualPrice").innerHTML = valor;
+  //console.log(modalQT);
 });
 
 qs(".pizzaInfo--qtmenos").addEventListener("click", () => {
+  let valor = pizzaJson[modalkey].price
   if (modalQT > 1) {
     modalQT--;
     qs(".pizzaInfo--qt").innerHTML = modalQT; //para atualizar o valor da variavel modal
+    qs(".pizzaInfo--actualPrice").innerHTML = (valor * modalQT).toFixed(2);
   } //para que a qtdd n fique negativa
 });
 
